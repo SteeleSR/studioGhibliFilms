@@ -1,27 +1,30 @@
-document.getElementById('introductionButton').addEventListener('click', () => {
+const filmUrl = 'https://ghibliapi.herokuapp.com/films/'
+// const characterUrl = 'https://ghibliapi.herokuapp.com/people'
+// const speciesUrl = 'https://ghibliapi.herokuapp.com/species'
+
+document.getElementById('introduction-button').addEventListener('click', () => {
     enterMainScreen()
 })
 
-document.getElementById('spiritedButton').addEventListener('click', () => {
-    enterSpiritedScreen()
+document.querySelectorAll('.show-more').forEach((button) => {
+    button.addEventListener('click', (e) => {
+        let urlSuffix = e.target.dataset.url
+        console.log(urlSuffix)
+        let urlToSend = filmUrl + urlSuffix
+        retrieveFilmData(urlToSend).then((filmObject) => {
+            fetch('template.hbs')
+                .then((filmData)=> filmData.text())
+                .then((filmTem) => {
+                    const template = Handlebars.compile(filmTem)
+                    let html = template(filmObject)
+                    document.getElementById('detail-screen').innerHTML = html
+                })
+        })
+        enterDetailScreen()
+    })
 })
 
-document.getElementById('princessButton').addEventListener('click', () => {
-    enterMononokeScreen()
-})
 
-document.getElementById('castleButton').addEventListener('click', () => {
-    enterCastleScreen()
-})
-
-document.getElementById('ponyoButton').addEventListener('click', () => {
-    enterPonyoScreen()
-})
-
-document.getElementById('howlsButton').addEventListener('click', () => {
-    enterHowlsScreen()
-})
-
-document.getElementById('totoroButton').addEventListener('click', () => {
-    enterTotoroScreen()
+document.getElementById('detail-back-button').addEventListener('click', () => {
+    exitDetailScreen()
 })

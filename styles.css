@@ -8,7 +8,13 @@ body {
     background-color: #E2CE45;
 }
 
-.introText {
+body {
+    background: linear-gradient(-45deg, #E2CE45, #E2CE45, #F28530, #B8C269);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+}
+
+.intro-text {
     position: relative;
     left: 50%;
     top: 150px
@@ -19,21 +25,22 @@ h3 {
     font-weight: 200;
 }
 
-#introductionButton {
-    background-color: #E2CE45;
+#introduction-button {
+    background-color: transparent;
     font-size: 2rem;
     border:solid 3px #000;
     border-radius: 5px;
 }
 
-#introductionButton:hover {
+#introduction-button:hover {
     background-color: #000;
     color: #E2CE45;
 }
 
+
 /*Main Screen*/
 
-#mainScreen {
+#main-screen {
     display: none;
     background-image: url("assets/cloudsFinal.png");
     background-size: contain;
@@ -45,29 +52,103 @@ h3 {
 }
 
 .film-container {
-    margin: 0px 20px;
+    margin: 0 20px;
     width: 30%;
     padding: 20px;
+}
+
+.film-container:hover {
+    transform: scale(1.02);
 }
 
 .film-poster > img {
     height: 600px;
     width: 100%;
-    border: solid 10px #fff;
+    border: solid 5px #fff;
     border-radius: 5px;
 }
 
 .film-button > button {
-    background-color: #638ECB;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 10s ease infinite;
     font-size: 2rem;
     border:solid 5px #fff;
     color: #fff;
     border-radius: 5px;
+    padding: 10px;
     margin-top: 7px;
 }
 
 .film-button > button:hover {
-    background-color: #fff;
+    background: #fff;
     color: #638ECB;
+}
+
+/* Detail Screen */
+
+#detail-screen {
+    display: none;
+    height: 900px;
+    width: 100%;
+    /*background-color: #23d5ab;*/
+}
+
+#detail-screen h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    padding-left: 50px;
+}
+
+#detail-screen p {
+    font-size: 1.3rem;
+}
+
+#detail-screen h5 {
+    font-size: 2rem;
+}
+
+#detail-screen img {
+    height: 750px;
+    width: 500px;
+}
+
+.detail-container {
+    display: flex;
+}
+
+.detail-info-container {
+    padding: 50px;
+}
+
+.extra-info-button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#detail-back-button {
+    margin-top: 50px;
+    background-color: transparent;
+    font-size: 2rem;
+    border:solid 3px #000;
+    border-radius: 5px;
+}
+
+#detail-back-button:hover {
+    background-color: #000;
+    color: #E2CE45;
+}
+
+/* Animations */
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 

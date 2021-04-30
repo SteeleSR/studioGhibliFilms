@@ -1,59 +1,31 @@
 const enterMainScreen = () => {
-    document.getElementById('introductionScreen').style.display = 'none'
-    document.getElementById('mainScreen').style.display = 'block'
-    document.body.style.background = '#638ECB';
+    document.getElementById('introduction-screen').style.display = 'none'
+    document.getElementById('main-screen').style.display = 'block'
+    document.body.style.background = 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)'
+    document.body.style.backgroundSize = '400% 400%'
+    document.body.style.animation = 'gradient 10s ease infinite'
 }
 
-const enterSpiritedScreen = () => {
-    document.getElementById('mainScreen').style.display = 'none'
-    document.getElementById('spiritedScreen').style.display = 'block'
+//Spirited Away Functions//
+
+const enterDetailScreen = () => {
+    document.getElementById('main-screen').style.display = 'none'
+    document.getElementById('detail-screen').style.display = 'block'
+    document.body.style.background = '#E2CE45'
 }
 
-// const getSpiritedData = () => {
-//     fetch()
-// }
-
-const enterMononokeScreen = () => {
-    document.getElementById('mainScreen').style.display = 'none'
-    document.getElementById('mononokeScreen').style.display = 'block'
+const exitDetailScreen = () => {
+    document.getElementById('detail-screen').style.display = 'none'
+    document.getElementById('main-screen').style.display = 'block'
+    document.body.style.background = 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)'
+    document.body.style.backgroundSize = '400% 400%'
+    document.body.style.animation = 'gradient 10s ease infinite'
 }
 
-// const getMononokeData = () => {
-//
-// }
-
-const enterCastleScreen = () => {
-    document.getElementById('mainScreen').style.display = 'none'
-    document.getElementById('castleScreen').style.display = 'block'
+async function retrieveFilmData(urlToSend) {
+let data = await fetch(urlToSend)
+    let result = await data.json()
+    console.log(result)
+    return result
 }
 
-// const getCastleData = () => {
-//
-// }
-
-const enterPonyoScreen = () => {
-    document.getElementById('mainScreen').style.display = 'none'
-    document.getElementById('ponyoScreen').style.display = 'block'
-}
-
-// const getPonyoData = () => {
-//
-// }
-
-const enterHowlsScreen = () => {
-    document.getElementById('mainScreen').style.display = 'none'
-    document.getElementById('howlsScreen').style.display = 'block'
-}
-
-// const getHowlsData = () => {
-//
-// }
-
-const enterTotoroScreen = () => {
-    document.getElementById('mainScreen').style.display = 'none'
-    document.getElementById('totoroScreen').style.display = 'block'
-}
-//
-// const getTotoroData = () => {
-//
-// }
